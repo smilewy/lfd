@@ -1,0 +1,128 @@
+.changeTime{
+    background: #fff;
+    padding:20px 40px;
+}
+.changeTime>div:nth-child(2),.changeTime>div:nth-child(3){
+    padding-top:5px;
+}
+.changeTime .btn-default{
+    border-color: #15a1ea;
+}
+.changeTime .btn-default.act{
+    background: #63caf8;
+    color: #fff;
+    border: none;
+}
+.changeTime>div>button:last-child{
+    margin-left:20px;
+}
+.payment .lists{
+    background: #fff;
+    padding-bottom:30px;
+}
+.payment table{
+    background: #f8f9fb;
+    margin-top:10px;
+}
+.payment .table > thead:first-child > tr:first-child > th{
+    background: #d5d5d5;
+    padding:20px 0;
+}
+.payment .table > tbody > tr > td{
+    padding:30px 0;
+    border: none;
+    position: relative;
+}
+.payment .table-striped > tbody > tr:nth-of-type(odd){
+    background: #fff;
+}
+.operation{
+    border: 1px solid #63caf8;
+    padding: 5px 10px;
+    border-radius: 12px;
+    cursor: pointer;
+}
+
+.news,
+.news + span {
+    float: left;
+}
+
+.news{
+    width:10px;
+    height:10px;
+    margin-top: 5px;
+    margin-left: 20%;
+    margin-right: 10%;
+    border-radius: 100%;
+    background: red;
+}
+
+.msgDetail{
+    background: #fff;
+    padding:160px 0;
+}
+.msgFromI2,.msgFromStudent{
+    width:60%;
+    margin:auto;
+    text-align: center;
+}
+.msgFromI2 h3{
+    font-size:36px;
+    text-align: center;
+}
+.msgFromI2 h3 span{
+    color: #63caf8;
+}
+.msgFromI2 p,.msgFromStudent p{
+    margin: 80px 0 30px 0;
+    line-height:2;
+    word-break: break-all;
+}
+.msgFromStudent .spec{
+    border: 1px solid;
+    border-radius: 10px;
+    padding:20px 20px 0 20px;
+    margin:30px 0;
+}
+.msgFromStudent .spec p{
+    margin:0 0 20px 0;
+    color: #c3c3c3;
+}
+.msgDetail .btn-default{
+    border: 1px solid #63caf8;
+    padding: 10px 35px;
+    border-radius: 20px;
+}
+.msgDetail .btn-default:focus,.msgDetail .btn-default.focus{
+    outline: none;
+}
+.msgFromI2 .time{
+    margin:0 0 60px 0;
+}
+.msgFromStudent .studentName{
+    color: #c3c3c3;
+    margin:0 10px;
+}
+.msgFromStudent .studentNameAct{
+    color: #63caf8;
+    margin:0 10px;
+    cursor: pointer;
+}
+.msgFromStudent .bn{
+    margin-top:30px;
+}
+.msgFromStudent .spec textarea{
+    resize: none;
+    width:100%;
+    height:100px;
+    border: none;
+}
+.msgFromStudent .spec textarea:focus{
+    outline: none;
+}
+.msgFromStudent .spec .textNum{
+    text-align: right;
+    color: #c3c3c3;
+    margin-bottom:10px;
+}

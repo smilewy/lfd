@@ -1,0 +1,54 @@
+.payment h3{
+    padding:30px 70px;
+    color: #78829d;
+    font-size:30px;
+    background: #fff;
+}
+.changeTime{
+    background: #fff;
+    padding:20px 40px;
+}
+.changeTime>div:nth-child(2),.changeTime>div:nth-child(3){
+    padding-top:5px;
+}
+.changeTime .btn-default{
+    border-color: #15a1ea;
+}
+.changeTime .btn-default.act{
+    background: #63caf8;
+    color: #fff;
+    border: none;
+}
+.changeTime>div>button:last-child{
+    margin-left:20px;
+}
+.changeTime .tips{
+    color: #63caf8;
+    font-size:12px;
+    text-decoration: underline;
+    cursor: pointer;
+}
+.changeTime .glyphicon{
+    color: #63caf8;
+    font-size:20px;
+    cursor: pointer;
+}
+.payment .lists{
+    background: #fff;
+    padding-bottom:30px;
+}
+.payment table{
+    background: #f8f9fb;
+    margin-top:10px;
+}
+.payment .table > thead:first-child > tr:first-child > th{
+    background: #d5d5d5;
+    padding:20px 0;
+}
+.payment .table > tbody > tr > td{
+    padding:30px 0;
+    border: none;
+}
+.payment .table-striped > tbody > tr:nth-of-type(odd){
+    background: #fff;
+}

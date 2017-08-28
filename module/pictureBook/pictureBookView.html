@@ -1,0 +1,74 @@
+<link rel="stylesheet" href="assets/css/feedback.css">
+<div class="feedback lan-art-demo clearfix">
+	<ol class="breadcrumb">
+		<li><a ui-sref="sessionHistory">Session history</a></li>
+		<li><a class="active">Feedback</a></li>
+	</ol>
+	<div class="course-info">
+		<div class="clearfix">
+			<h2 class="pull-left title">PICTURE BOOK</h2>
+			<span class="pull-right lefundo">LEFUNDO</span>
+		</div>
+		<p class="clearfix">
+			<span class="pull-left">Date and Time</span>
+			<span class="pull-right" ng-bind="((lessonInfo.classBeginTimeTeacher | date:'yyyy/MM/dd HH:mma') + '-' +(lessonInfo.classEndTimeTeacher | date:'yyyy/MM/dd HH:mma')) | dateToLowerCase"></span>
+		</p>
+		<p class="clearfix">
+			<span class="pull-left">Course</span>
+			<span class="pull-right" ng-bind="(lessonInfo.coursewareCompleteCode) + ' ' + (lessonInfo.coursewareName)"></span>
+		</p>
+		<p class="clearfix">
+			<span class="pull-left">Student's Name</span>
+			<span class="pull-right" ng-bind="lessonInfo.studentEnName"></span>
+		</p>
+		<p class="clearfix">
+			<span class="pull-left">Teacher's Name</span>
+			<span class="pull-right" ng-bind="lessonInfo.teacherName"></span>
+		</p>
+	</div>
+	<div class="item first">
+		<div class="title">
+			<h3>01</h3>
+			<span>CLASS PERFORMANCE</span>
+		</div>
+		<div class="item-content">
+			<div class="item-list">
+				<div class="start clearfix">
+					<p class="pull-left">What do you rate this session</p>
+					<div class="pull-right" star rating-value="picturebook.part_1.question_1" max="5" readonly="true"></div>
+				</div>
+				<div class="start clearfix">
+					<p class="pull-left">Student Engagement</p>
+					<div class="pull-right" star rating-value="picturebook.part_1.question_2" max="5" readonly="true"></div>
+				</div>
+				<div class="start clearfix">
+					<p class="pull-left">Student's cooperation level </p>
+					<div class="pull-right" star rating-value="picturebook.part_1.question_3" max="5" readonly="true"></div>
+				</div>
+				<div class="start clearfix">
+					<p class="pull-left">Student reading comprehensive ability </p>
+					<div class="pull-right" star rating-value="picturebook.part_1.question_4" max="5" readonly="true"></div>
+				</div>
+				<div class="start clearfix">
+					<p class="pull-left">Student reading interest</p>
+					<div class="pull-right" star rating-value="picturebook.part_1.question_5" max="5" readonly="true"></div>
+				</div>
+			</div>
+			<div class="item-list">
+				<p>Please write down your comments to help student improve what he/she did not do well</p>
+				<textarea readonly="readonly" ng-bind="picturebook.part_1.question_6" class="form-control"></textarea>
+			</div>
+		</div>
+	</div>
+	<div class="item">
+		<div class="title">
+			<h3>02</h3>
+			<span>Any reading suggestions and recommended books</span>
+		</div>
+		<div class="item-content">
+			<div class="item-list">
+				<textarea readonly="readonly" ng-bind="picturebook.part_2.question_1"class="form-control"></textarea>
+			</div>
+		</div>
+	</div>
+</div>

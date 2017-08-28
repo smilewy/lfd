@@ -1,0 +1,351 @@
+.datetimepicker {
+	margin-top: 0;
+}
+
+.sch-header {
+	height: 79px;
+	line-height: 79px;
+}
+
+.sch-header button {
+	width: 154px;
+	height: 44px;
+	margin-left: 25%;
+	line-height: 40px;
+	font-size: 14px;
+	background-color: transparent;
+	border: 1px solid #474747;
+	border-radius: 8px;
+	cursor: pointer;
+	outline: none;
+}
+
+.sch-header button:hover {
+	color: #15a1ea;
+	border-color: #15a1ea;
+}
+
+.sch-header button[disabled] {
+	color: #c7c7c7;
+	border: 1px solid #c7c7c7;
+	cursor: default;
+}
+
+.sch-status {
+	float: right;
+}
+
+.sch-status li {
+	display: inline-block;
+	margin-right: 25px;
+}
+
+.sch-status li span {
+	font-size: 14px;
+	vertical-align: middle;
+}
+
+.sch-status li span:first-child {
+	display: inline-block;
+	width: 24px;
+	height: 24px;
+	margin-right: 10px;
+	border-radius: 5px;
+}
+
+.sch-status .icon-ava {
+	background-color: #e9e9e9;
+}
+
+.sch-status .icon-not {
+	background-color: #c4c4c4;
+}
+
+.sch-status .icon-wait {
+	background-color: #fe9d92;
+}
+
+.sch-left {
+	position: absolute;
+	top: 85px;
+	left: 0;
+	width: 315px;
+}
+
+.my-student {
+	margin-top: 6px;
+	padding: 15px;
+}
+
+.my-student p {
+	margin-top: 10px;
+	font-size: 12px;
+	color: #b9b9b9;
+}
+
+.my-student .stu-list label {
+	display: block;
+	cursor: pointer;
+}
+
+.my-student .stu-list label:hover {
+	color: #15a1ea;
+}
+
+.my-student .stu-list {
+	margin-top: 48px;
+}
+
+.my-student .stu-list li {
+	margin-top: 20px;
+}
+
+.sch-right {
+	margin-left: 321px;
+	margin-top: 6px;
+	padding: 25px;
+}
+
+.table {
+	width: 94%;
+	border: none;
+}
+
+.table th,
+.table td {
+	text-align: center;
+}
+
+.table th {
+	font-size: 14px;
+	font-weight: normal;
+	border: none !important;
+}
+
+.table td {
+	height: 40px;
+}
+
+.sch-time {
+	margin-top: 30px;
+	padding-left: 0;
+	width: 6%;
+}
+
+.sch-time li {
+	margin-bottom: 18px;
+}
+
+.week-header {
+	position: relative;
+	margin-bottom: 25px;
+	min-height: 25px;
+}
+
+.btn-week {
+	position: absolute;
+	right: 0;
+	bottom: 0;
+}
+
+.btn-week button,
+.btn-week button span {
+	vertical-align: middle;
+}
+
+.btn-week button {
+	margin-right: 20px;
+	border: none;
+	background: none;
+	outline: none;
+}
+
+.btn-week button .glyphicon {
+	color: #15a1ea;
+}
+
+.btn-week button[disabled],
+.btn-week button[disabled] .glyphicon {
+	color: #c7c7c7;
+}
+
+.week-header .edit p,
+.week-header .edit label {
+	font-size: 14px;
+}
+
+.week-header .edit ul {
+	display: inline-block;
+	padding-left: 10px;
+	vertical-align: top;
+}
+
+.btn {
+	width: 90px;
+	height: 32px;
+}
+
+.pagination {
+	font-size: 14px;
+}
+
+.pagination > li > span {
+	padding: 0 6px;
+}
+
+.table-div {
+	width: 94%;
+}
+
+.table-div-head,
+.table-div-body {
+	display: table;
+	width: 100%;
+}
+
+.table-div-head > div,
+.table-div-body > div {
+	display: table-cell;
+	width: 14.28%;
+	text-align: center;
+	vertical-align: middle;
+}
+
+.table-div-head > div {
+	padding: 8px;
+}
+
+.table-div-body > div {
+	height: 40px;
+}
+
+.table-div-tr:first-child {
+	border-left: 1px solid #ddd;
+}
+
+.table-div-tr ul {
+	padding-left: 0;
+	margin: 0;
+}
+
+.table-div-tr ul li {
+	height: 40px;
+	border-right: 1px solid #ddd;
+	border-bottom: 1px solid #ddd;
+	background-color: #c4c4c4;
+}
+
+.table-div-tr ul li:first-child {
+	border-top: 1px solid #ddd;
+}
+
+.table-div-tr li > div {
+	position: relative;
+	width: 100%;
+	height: 100%;
+	padding: 8px;
+	font-size: 18px;
+	color: #fff;
+	text-decoration: underline;
+	background-color: #fe9d92;
+}
+
+.table-div-tr li.selected,
+.table-div-tr li div.selected {
+	background-color: #e9e9e9;
+}
+
+.table-div-tr li .en-name {
+	cursor: pointer;
+}
+
+.table-div-tr li .demo {
+	position: absolute;
+	right: 1px;
+	top: 1px;
+	font-size: 12px;
+	color: #572e29;
+}
+
+.stu-info {
+	width: 592px;
+	height: 479px;
+}
+
+.stu-info .head {
+	position: absolute;
+	top: -66px;
+	left: 0;
+	right: 0;
+	margin: auto;
+	width: 132px;
+	height: 132px;
+	border: 5px solid #e4e4e4;
+	-webkit-border-radius: 50%;
+	-moz-border-radius: 50%;
+	border-radius: 50%;
+	overflow: hidden;
+}
+
+.stu-info .head > img {
+	max-width: 100%;
+}
+
+.stu-info .pull-left {
+	width: 296px;
+	height: 100%;
+	padding-left: 20px;
+	padding-right: 20px;
+	border-right: 1px solid #ff6f6f;
+}
+
+.stu-info .pull-right {
+	width: 294px;
+	height: 100%;
+	padding-left: 20px;
+	padding-right: 20px;
+	font-size: 14px;
+}
+
+.stu-body,
+.stu-info .pull-left,
+.stu-info .pull-right {
+	padding-top: 70px;
+}
+
+.stu-info dt {
+	font-size: 18px;
+}
+
+.stu-info-title,
+.stu-info-title + p {
+	font-size: 14px;
+}
+
+.stu-info dt,
+.stu-info-title {
+	color: #3fbef6;
+}
+
+.stu-info dd {
+	margin-top: 10px;
+}
+
+.stu-info-key {
+	color: #9e9e9e
+}
+
+.stu-info-key + span {
+	margin-right: 10px;
+}
+
+
+.btn-thk {
+	position: absolute;
+	left: 0;
+	right: 0;
+	bottom: 20px;
+	margin: auto;
+	width: 145px;
+	font-size: 16px;
+}

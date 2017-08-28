@@ -1,0 +1,106 @@
+<link rel="stylesheet" href="module/home/home.css">
+<div class="home-head clearfix">
+	<div class="home-info clearfix">
+		<div class="head-img">
+			<div ui-sref="personalInfoView({'id':teacherInfo.idTeacher})">
+				<img ng-src="{{teacherInfo.fullHeadImage }}" alt="">
+			</div>
+			<span class="head-point"></span>
+		</div>
+		<ul class="user-info">
+			<li ng-bind="'Hi ' + teacherInfo.name"></li>
+			<li>
+				<div>
+					<span>Star: </span>
+					<span class="start" star rating-value="starnum" max="5" readonly="true"></span>
+					<a href="how-to-get-starts.html" target="_blank">(How to get star)</a>
+				</div>
+				<div class="home-zan">
+					<img src="assets/img/home-zan.png">
+					<span>Thump up:</span>
+					<span ng-bind="teacherInfo.floorNum || '0'"></span>
+				</div>
+			</li>
+		</ul>
+	</div>
+	<p class="nice-day">
+		<span>Have a nice day!</span>
+		<img src="assets/img/home-smile.png">
+	</p>
+</div>
+<div class="home-working clearfix">
+	<div class="home-title">
+		<div>
+			<span class="home-dots"></span>
+			<p>Working sessions for this month</p>
+			<span class="sept" ng-bind="monthYear">Sept.2016</span>
+		</div>
+		<div class="working-total">
+			<span>Total:</span>
+			<span ng-bind="teacherInfo.lessonNum + ' sessions'"></span>
+		</div>
+	</div>
+	<div class="week-btn-group">
+		<button ng-disabled="isPreDis" ng-click="prevWeek()">
+			<span class="media-middle glyphicon glyphicon-menu-left"></span>
+			<span class="media-middle">LAST WEEK</span>
+		</button>
+		<button ng-disabled="isDisabled" ng-click="nextWeek()">
+			<span class="media-middle">NEXT WEEK</span>
+			<span class="media-middle glyphicon glyphicon-menu-right"></span>
+		</button>
+	</div>
+	<div id="lineChart" style="height: 485px;"></div>
+</div>
+<div class="performance clearfix">
+	<div class="home-title clearfix">
+		<div>
+			<span class="home-dots"></span>
+			<p>Performance</p>
+		</div>
+	</div>
+	<ul class="perf-content">
+		<li>
+			<p>Attendence rate</p>
+			<canvas id="atte" width="160" height="160"></canvas>
+			<div class="perf-info">
+				<p class="perf-title">
+					<span>Attendence rating</span>
+					<span>By students</span>
+				</p>
+				<p ng-bind="perf.onTime.toFixed(1)"></p>
+			</div>
+		</li>
+		<li>
+			<p>Instruction</p>
+			<canvas id="inst" width="160" height="160"></canvas>
+			<div class="perf-info">
+				<p class="perf-title">
+					<span>Instruction by students</span>
+				</p>
+				<p ng-bind="perf.patience.toFixed(1)"></p>
+			</div>
+		</li>
+		<li>
+			<p>Patience</p>
+			<canvas id="pati" width="160" height="160"></canvas>
+			<div class="perf-info">
+				<p class="perf-title">
+					<span>Patience by students</span>
+				</p>
+				<p ng-bind="perf.guidance.toFixed(1)"></p>
+			</div>
+		</li>
+		<li>
+			<p>Cooperation</p>
+			<canvas id="coop" width="160" height="160"></canvas>
+			<div class="perf-info">
+				<p class="perf-title">
+					<span>Cooperation rating</span>
+					<span>By staff</span>
+				</p>
+				<p ng-bind="perf.cooperation.toFixed(1)"></p>
+			</div>
+		</li>
+	</ul>
+</div>

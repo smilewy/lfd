@@ -1,0 +1,135 @@
+<link rel="stylesheet" href="module/personalInfo/myInfo.css">
+<div class="infoBg">
+    <form class="infoContent" name="userInfo">
+        <h3>Your account</h3>
+        <div class="avr">
+            <div>
+                <img ng-src="{{fullHeadImage}}" alt="">
+                <span data-toggle="modal" data-target="#myModal">Edit</span>
+            </div>
+        </div>
+        <div class="msg clearfix">
+            <div>Name:</div>
+            <div ng-class="{'has-error':userInfo.name.$invalid&&userInfo.name.$dirty,'has-success':userInfo.name.$valid}">
+                <input name="name" ng-model="param.name" type="text" class="form-control" ng-pattern="/^[\x00-\xFF]+$/" required>
+            </div>
+            <div>
+                <img src="assets/img/personal_01.png" ng-if="userInfo.name.$invalid&&userInfo.name.$dirty">
+                <img src="assets/img/personal_02.png" ng-if="userInfo.name.$valid">
+            </div>
+        </div>
+        <div class="msg clearfix">
+            <div>Major:</div>
+            <div ng-class="{'has-error':userInfo.major.$invalid&&userInfo.major.$dirty,'has-success':userInfo.major.$valid&&userInfo.major.$dirty}">
+                <input name="major" ng-model="param.major" type="text" class="form-control" ng-pattern="/^[\x00-\xFF]+$/">
+            </div>
+            <div>
+                <img src="assets/img/personal_01.png" ng-if="userInfo.major.$invalid&&userInfo.major.$dirty">
+                <img src="assets/img/personal_02.png" ng-if="userInfo.major.$valid&&userInfo.major.$dirty">
+            </div>
+        </div>
+        <div class="msg clearfix">
+            <div>Country:</div>
+            <div ng-class="{'has-error':userInfo.country.$invalid&&userInfo.country.$dirty,'has-success':userInfo.country.$valid&&userInfo.country.$dirty}">
+                <select name="country" ng-model="param.idLfdDic" type="text" class="form-control" ng-pattern="/^[\x00-\xFF]+$/">
+                    <option value="{{country.idLfdDic}}" ng-repeat="country in countries">{{country.name}}</option>
+                </select>
+            </div>
+            <div>
+                <img src="assets/img/personal_01.png" ng-if="userInfo.country.$invalid&&userInfo.country.$dirty">
+                <img src="assets/img/personal_02.png" ng-if="userInfo.country.$valid&&userInfo.country.$dirty">
+            </div>
+        </div>
+        <div class="msg clearfix">
+            <div>University:</div>
+            <div ng-class="{'has-error':userInfo.university.$invalid&&userInfo.university.$dirty,'has-success':userInfo.university.$valid&&userInfo.university.$dirty}">
+                <input name="university" ng-model="param.graduationCollege" type="text" class="form-control" ng-pattern="/^[\x00-\xFF]+$/">
+            </div>
+            <div>
+                <img src="assets/img/personal_01.png" ng-if="userInfo.university.$invalid&&userInfo.university.$dirty">
+                <img src="assets/img/personal_02.png" ng-if="userInfo.university.$valid&&userInfo.university.$dirty">
+            </div>
+        </div>
+        <div class="msg clearfix">
+            <div>Motto:</div>
+            <div ng-class="{'has-error':userInfo.motto.$invalid&&userInfo.motto.$dirty,'has-success':userInfo.motto.$valid&&userInfo.motto.$dirty}">
+                <input name="motto" maxlength="50" placeholder="限50个字符" ng-model="param.motto" type="text" class="form-control" ng-pattern="/^[\x00-\xFF]+$/">
+            </div>
+            <div>
+                <img src="assets/img/personal_01.png" ng-if="userInfo.motto.$invalid&&userInfo.motto.$dirty">
+                <img src="assets/img/personal_02.png" ng-if="userInfo.motto.$valid&&userInfo.motto.$dirty">
+            </div>
+        </div>
+        <div class="msg clearfix">
+            <div>About me:</div>
+            <div ng-class="{'has-error':userInfo.aboutMe.$invalid&&userInfo.aboutMe.$dirty,'has-success':userInfo.aboutMe.$valid&&userInfo.aboutMe.$dirty}">
+                <textarea name="aboutMe" maxlength="200" placeholder="限200个字符" ng-model="param.selfEvaluation" class="form-control" ng-pattern="/^[\x00-\xFF]+$/"></textarea>
+            </div>
+            <div>
+                <img src="assets/img/personal_01.png" ng-if="userInfo.aboutMe.$invalid&&userInfo.aboutMe.$dirty">
+                <img src="assets/img/personal_02.png" ng-if="userInfo.aboutMe.$valid&&userInfo.aboutMe.$dirty">
+            </div>
+        </div>
+        <div class="msg clearfix">
+            <div>Linked wechat account:</div>
+            <div ng-class="{'has-error':userInfo.account.$invalid&&userInfo.account.$dirty,'has-success':userInfo.account.$valid&&userInfo.account.$dirty}">
+                <input name="account" ng-model="param.wechat" type="text" class="form-control" ng-pattern="/^[\x00-\xFF]+$/">
+            </div>
+            <div>
+                <img src="assets/img/personal_01.png" ng-if="userInfo.account.$invalid&&userInfo.account.$dirty">
+                <img src="assets/img/personal_02.png" ng-if="userInfo.account.$valid&&userInfo.account.$dirty">
+            </div>
+        </div>
+        <div class="msg clearfix">
+            <div>Linked email address:</div>
+            <div ng-class="{'has-error': userInfo.email.$invalid&&userInfo.email.$dirty,'has-success':userInfo.email.$valid&&userInfo.email.$dirty}">
+                <input name="email" ng-model="param.loginName" type="email" class="form-control">
+            </div>
+            <div>
+                <img src="assets/img/personal_01.png" ng-if="userInfo.email.$invalid&&userInfo.email.$dirty">
+                <img src="assets/img/personal_02.png" ng-if="userInfo.email.$valid&&userInfo.email.$dirty">
+            </div>
+        </div>
+        <div>
+            <button type="button" class="btn btn-default" ng-click="saveInfo()">Save</button>
+        </div>
+    </form>
+    <!-- Modal -->
+    <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content clearfix uploadAvr">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span class="glyphicon glyphicon glyphicon-remove" aria-hidden="true"></span></button>
+                <div class="contentL">
+                    <div class="mainHead" style="color: #2e7b7b">Custom avatar</div>
+                    <div class="avatar-wrapper">
+                        <a href="javascript:;" class="btn btn-default file" ng-show="!imgHave">Local upload
+                            <input type="file" class="file_upload" />
+                        </a>
+                        <img src="" id="preview" ng-show="imgHave"/>
+                    </div>
+                    <div>
+                        <button type="button" class="btn btn-default queding" ng-show="imgHave">Save</button>
+                        <button type="button" class="btn btn-default cancel" ng-show="imgHave" data-dismiss="modal">Cancel</button>
+                    </div>
+                </div>
+                <div class="contentR">
+                    <div class="mainHead">preview</div>
+                    <div class="sImg">
+                        <div>
+                            <div class="previewSimg">
+                                <img src="assets/img/home-smile.png" alt="">
+                            </div>
+                        </div>
+                        <p>40*40</p>
+                    </div>
+                    <div class="bImg">
+                        <div class="previewBimg">
+                            <img src="assets/img/home-smile.png" alt="">
+                        </div>
+                        <p>297*392</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

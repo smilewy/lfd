@@ -1,0 +1,52 @@
+<link rel="stylesheet" href="module/message/message.css">
+<div class="payment">
+    <div class="changeTime clearfix">
+        <div>
+            <button type="button" ng-class="{true:'btn btn-default act',false:'btn btn-default'}[messageType==0]" ng-click="changeMessage(0)">Message from i2</button>
+            <button type="button" ng-class="{true:'btn btn-default act',false:'btn btn-default'}[messageType==1]" ng-click="changeMessage(1)">Message from students</button>
+        </div>
+    </div>
+    <div class="lists">
+        <table class="table table-striped" ng-if="messageType==0">
+            <thead>
+            <tr>
+                <th>Status</th>
+                <th>Sender</th>
+                <th>Theme</th>
+                <th>Time</th>
+                <th>Operation</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr ng-repeat="list in lists">
+                <td style="cursor: pointer;min-width: 100px" ng-click="operation($index,1)"><span class="news" ng-if="list.isRead=='N'"></span><span ng-if="list.isRead=='N'">Unread</span><span ng-if="list.isRead=='Y'">Read</span></td>
+                <td>i2</td>
+                <td style="max-width: 500px;word-break: break-all">{{list.content}}</td>
+                <td>{{list.publishTime|date:'yyyy-MM-dd HH:mm:ss'}}</td>
+                <td><span class="operation" ng-click="operation($index,2)">Delete</span></td>
+            </tr>
+            </tbody>
+        </table>
+        <table class="table table-striped" ng-if="messageType==1">
+            <thead>
+            <tr>
+                <th>Status</th>
+                <th>Sender</th>
+                <th>Theme</th>
+                <th>Time</th>
+                <th>Operation</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr ng-repeat="list in lists">
+                <td style="cursor: pointer;min-width: 100px" ng-click="operations($index,1)"><span class="news" ng-if="list.isTeacherRead=='N'"></span><span ng-if="list.isTeacherRead=='N'">Unread</span><span ng-if="list.isTeacherRead=='Y'">Read</span></td>
+                <td>{{list.studentName}}</td>
+                <td style="max-width: 500px;word-break: break-all">{{list.studentMessage}}</td>
+                <td>{{list.studentSendTime|date:'yyyy-MM-dd HH:mm:ss'}}</td>
+                <td><span class="operation" ng-click="operations($index,2)">Delete</span></td>
+            </tr>
+            </tbody>
+        </table>
+        <tm-pagination class="text-center" conf="pageConf"></tm-pagination>
+    </div>
+</div>

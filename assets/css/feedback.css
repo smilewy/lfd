@@ -1,0 +1,191 @@
+.feedback {
+	margin: 0 auto 20px;
+	padding: 30px 42px;
+	width: 900px;
+	background-color: #fff;
+	-webkit-box-shadow: 0 3px 10px 3px #cccccc;
+	-moz-box-shadow: 0 3px 10px 3px #cccccc;
+	box-shadow: 0 3px 10px 3px #cccccc;
+}
+
+.breadcrumb {
+	margin-bottom: 35px;
+	padding: 0;
+	background-color: transparent;
+}
+
+.breadcrumb > li {
+	vertical-align: middle;
+}
+
+.breadcrumb > li + li:before {
+	content: '<';
+	padding-left: 0;
+	padding-right: 10px;
+	color: inherit;
+	vertical-align: middle;
+}
+
+.breadcrumb > li > a {
+	text-decoration: underline;
+	vertical-align: middle;
+}
+
+.breadcrumb > li > a:hover,
+.breadcrumb > li > a.active {
+	color: #6cc8f8;
+}
+
+.breadcrumb > li > a.active {
+	text-decoration: none;
+}
+
+.course-info {
+	margin-bottom: 35px;
+}
+
+.course-info > div {
+	margin-bottom: 30px;
+	padding-bottom: 8px;
+	border-bottom: 1px solid #333333;
+}
+
+.course-info > div .title {
+	margin: 0;
+	font-size: 22px;
+}
+
+.course-info > div .lefundo {
+	margin-top: 4px;
+	font-size: 14px;
+}
+
+.item {
+	margin-top: 20px;
+}
+
+.item.first {
+	margin-top: 0;
+}
+
+.item .title {
+	margin-bottom: 25px;
+	padding-bottom: 8px;
+	border-bottom: 1px solid #333333;
+}
+
+.item .title h3 {
+	display: inline-block;
+	margin: 0;
+	font-size: 44px;
+	color: #6cc8f8;
+}
+
+.item .title span {
+	display: inline-block;
+	margin-bottom: 5px;
+}
+
+.item .title h3,
+.item .title span {
+	vertical-align: bottom;
+}
+
+.item-content {
+	padding: 0 20px;
+}
+
+.item-list {
+	margin-top: 25px;
+	padding-top: 15px;
+	border-top: 1px dashed #c2c2c2;
+}
+
+.item-list:first-child {
+	margin-top: 0;
+	padding-top: 0;
+	border-top: none;
+}
+
+.radio-group {
+	margin-bottom: 10px;
+}
+
+.radio-group label {
+	margin-left: 52px;
+	cursor: pointer;
+}
+
+.radio-group label:first-child {
+	margin-left: 0;
+}
+
+.radio-group span {
+	vertical-align: middle;
+}
+
+.item-radio {
+	display: inline-block;
+	width: 14px;
+	height: 14px;
+	background-image: url(../img/feedback-radio.png);
+}
+
+label.checked .item-radio {
+	background-image: url(../img/feedback-radio-checked.png);
+}
+
+.item-list textarea {
+	height: 107px;
+	resize: none;
+}
+
+.submit {
+	margin-top: 20px;
+	text-align: center;
+}
+
+.submit button {
+	width: 148px;
+	height: 52px;
+	font-size: 20px;
+	border: 1px solid #6cc8f8;
+	-webkit-border-radius: 26px;
+	-moz-border-radius: 26px;
+	border-radius: 26px;
+	outline: none !important;
+}
+
+.start {
+	margin-bottom: 10px;
+}
+
+.start p {
+	margin-top: 4px;
+	margin-bottom: 0;
+}
+
+.rating {
+	color: #a9a9a9;
+	margin: 0;
+	padding: 0;
+}
+
+ul.rating {
+	display: inline-block;
+}
+
+.rating li {
+	list-style-type: none;
+	display: inline-block;
+	padding: 1px;
+	margin-left: 5px;
+	font-size: 20px;
+	text-align: center;
+	font-weight: bold;
+	cursor: pointer;
+}
+
+.rating .filled {
+	color: #ffb16c;
+}

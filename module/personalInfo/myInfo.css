@@ -1,0 +1,182 @@
+.infoBg{
+    background: #fff;
+}
+.infoContent{
+    width:612px;
+    margin: auto;
+    padding-top:50px;
+    padding-bottom:50px;
+}
+.infoContent h3{
+    width:60%;
+    margin-left:30%;
+    color: #15a1ea;
+    font-size:36px;
+    text-align: center;
+}
+.infoContent>div{
+    margin-top:30px;
+}
+.infoContent textarea{
+    resize: none;
+}
+.infoContent textarea,.infoContent input{
+    font-family:inherit;
+}
+.infoContent .avr{
+    width:60%;
+    margin-left:30%;
+}
+.infoContent .avr>div{
+    width:150px;
+    height:150px;
+    border: 3px solid #e3e3e3;
+    border-radius: 100%;
+    overflow: hidden;
+    margin:auto;
+    position: relative;
+}
+.infoContent .avr>div img{
+    width:100%;
+}
+.infoContent .avr>div span{
+    position: absolute;
+    bottom:10px;
+    left:50%;
+    background: #4a6e8b;
+    color: #fff;
+    font-size:13px;
+    padding: 2px 8px;
+    border-radius: 3px;
+    -webkit-transform: translateX(-50%);
+    -moz-transform: translateX(-50%);
+    -ms-transform: translateX(-50%);
+    -o-transform: translateX(-50%);
+    transform: translateX(-50%);
+    cursor: pointer;
+}
+.msg>div{
+    float: left;
+}
+.msg>div:first-child{
+    width:30%;
+    text-align: right;
+    padding-right:2%;
+}
+.msg>div:nth-child(2){
+    width:60%;
+}
+.msg>div:nth-child(3){
+    width:10%;
+    padding-left:2%;
+    padding-top:5px;
+}
+.infoContent .btn-default{
+    border-color: #15a1ea;
+    border-radius: 25px;
+    font-size:18px;
+    padding:10px 50px;
+    margin-left:50%;
+}
+.infoContent .btn-default:focus, .infoContent .btn-default.focus{
+    outline: none;
+}
+
+/*上传头像*/
+.uploadAvr .glyphicon{
+    position: absolute;
+    right: 10px;
+    top:10px;
+    color: #ff6f6f;
+}
+.uploadAvr .close{
+    opacity: 1;
+}
+.uploadAvr>div{
+    float: left;
+    height:420px;
+}
+.contentL{
+    width:70%;
+}
+.contentR{
+    width:30%;
+    background: #f4f4f4;
+    border-radius: 0 6px 6px 0;
+}
+.contentL>div:nth-child(2){
+    height:250px;
+    border-bottom: 2px solid #f4f4f4;
+    text-align: center;
+    width:418px;
+    background: #fcfcfc;
+}
+.avatar-wrapper img{
+    max-width:100%;
+}
+.contentL>div:nth-child(3){
+    padding-top:35px;
+    text-align: center;
+}
+.uploadAvr .btn-default{
+    border-color: #15a1ea;
+}
+.uploadAvr .btn-default.cancel{
+    border: 1px solid #ff6f6f;
+    margin-left:30px;
+}
+.contentL>div:nth-child(2) .btn-default{
+    margin-top:100px;
+}
+.mainHead{
+    border-bottom: 2px solid #f4f4f4;
+    padding-left:20px;
+    height:60px;
+    line-height:60px;
+}
+.sImg{
+    width:70px;
+    margin:auto;
+    text-align: center;
+}
+.sImg>div{
+    width:70px;
+    height:70px;
+    border-radius: 100%;
+    overflow: hidden;
+    border: 3px solid #e4e4e4;
+    background: #fff;
+}
+.sImg>div img,.bImg>div img{
+    width:100%;
+}
+.sImg p,.bImg p{
+    margin-top:10px;
+}
+.bImg{
+    width:100px;
+    margin:45px auto;
+    text-align: center;
+}
+.bImg>div{
+    width:100%;
+    height:120px;
+    border: 3px solid #3fbef6;
+    overflow: hidden;
+    background: #fff;
+    margin:auto;
+}
+.previewSimg{
+    width:64px;
+    height:64px;
+}
+.file{
+    position: relative;
+}
+.file input {
+    position: absolute;
+    font-size: 100px;
+    right: 0;
+    top: 0;
+    opacity: 0;
+}

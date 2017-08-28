@@ -1,0 +1,126 @@
+<link rel="stylesheet" href="assets/js/libs/swiper/swiper.min.css">
+<link rel="stylesheet" href="module/sessionHistory/sessionHistory.css">
+<div class="search clearfix">
+	<div class="col-sm-offset-8 col-sm-2 search-input search-date">
+		<div class="ii">
+			<span class="search-icon glyphicon glyphicon-search"></span>
+			<label>
+				<input id="dateTime" class="form-control" type="text"  placeholder="Search by calendar" readonly>
+				<span class="calendar-icon glyphicon glyphicon-calendar"></span>
+			</label>
+		</div>
+	</div>
+	<div class="col-sm-2 search-input">
+		<label>
+			<span class="search-icon glyphicon glyphicon-search"></span>
+			<input ng-model="requestParam.note.enName" class="form-control" type="text" ng-blur="search()" placeholder="Search by student name">
+		</label>
+	</div>
+</div>
+<div class="list">
+	<table class="table table-striped">
+		<tr>
+			<th>Time</th>
+			<th>Student</th>
+			<th>Lesson plan</th>
+			<th>Video</th>
+			<th>Reports</th>
+			<th>Homework</th>
+			<th>Comments</th>
+		</tr>
+		<tr ng-repeat="obj in sessionList">
+			<td ng-bind="((obj.classBeginTimeTeacher | date:'yyyy.MM.dd HH:mma') + '-' +(obj.classEndTimeTeacher | date:'yyyy.MM.dd HH:mma')) | dateToLowerCase"></td>
+			<td ng-bind="obj.studentEnName"></td>
+			<td>
+				<div class="inline-block media-middle">
+					<span ng-bind="obj.coursewareCompleteCode"></span>
+				</div>
+				<a class="btn btn-sm btn-default" href="pdf.html?file={{obj.attachmentUrl}}" target="_blank">view</a>
+			</td>
+			<td>
+				<div ng-if="obj.isTeacherAbsent == 'Y'">teacher absence</div>
+				<div ng-if="obj.isStudentAbsent == 'Y'">student absence</div>
+				<div>
+					<button ng-if="obj.isTeacherAbsent == 'N' && obj.isStudentAbsent == 'N' && obj.isUploadVedio == 'N'"
+							ng-click="uploadClick(obj.idLfdLesson)" class="btn btn-sm btn-default">Upload video</button>
+					<button ng-if="obj.isTeacherAbsent == 'N' && obj.isStudentAbsent == 'N' && obj.isUploadVedio == 'Y'"
+							ng-click="uploadClick(obj.idLfdLesson)" class="btn btn-sm btn-default" title="{{obj.vedioName}}">Uploaded</button>
+					<div ng-if="obj.vedioName" ng-bind="obj.vedioName" class="text-overflow" title="{{obj.vedioName}}"></div>
+				</div>
+			</td>
+			<td>
+				<button ng-if="obj.idLfdTeacherFeedback == null" class="btn btn-default" ng-click="writeFeedback(obj)">Fill in</button>
+				<button ng-if="obj.idLfdTeacherFeedback != null" class="btn btn-default" ng-click="viewFeedback(obj)">View</button>
+			</td>
+			<td>
+				<button ng-if="obj.idLfdHomework != null" class="btn btn-default" ng-click="showHomework(obj.idLfdHomework)">View</button>
+				<span ng-if="obj.idLfdHomework == null">No message!</span>
+			</td>
+			<td>
+				<button ng-if="obj.idLfdComment != null" class="btn btn-default" ng-click="showComments(obj.idLfdComment)">View</button>
+				<span ng-if="obj.idLfdComment == null">No message!</span>
+			</td>
+		</tr>
+	</table>
+	<tm-pagination class="text-center" conf="pageConf"></tm-pagination>
+	<input type="file" id="fileupload" class="hide" fileread="file.name" accept=".mp4">
+</div>
+
+<div class="popup" ng-if="isShowCom">
+	<div class="reports">
+		<button class="btn-close" ng-click="closeComment()"></button>
+		<div class="reports-body">
+			<div class="item">
+				<p class="title">Evaluation items: </p>
+				<ul class="info">
+					<li>Attendence rate: {{comment.commentMap.ONTIME}}</li>
+					<li>Instruction: {{comment.commentMap.PATIENCE}}</li>
+					<li>Patience: {{comment.commentMap.GUIDANCE}}</li>
+				</ul>
+			</div>
+			<div class="item total-score">
+				<p class="media-middle title">Total score：</p>
+				<div class="media-middle info">
+					<span class="media-middle" ng-bind="comment.avgScore"></span>
+					<span ng-if="comment.isFlower == 'Y'" class="media-middle zan"></span>
+					<span ng-if="comment.isFlower != 'Y'" class="media-middle"></span>
+				</div>
+			</div>
+			<div class="item">
+				<p class="title">Comments: </p>
+				<p class="info">{{comment.detail}}</p>
+			</div>
+		</div>
+	</div>
+</div>
+
+<div class="popup" ng-show="homework">
+	<div class="homework">
+		<button class="btn-close" ng-click="hiddenHomework()"></button>
+		<div class="homework-body">
+			<div class="item">
+				<span class="title">Assignment Topic:</span>
+				<span ng-bind="homeworkDetail.title"></span>
+			</div>
+			<div class="item">
+				<span class="title">Description of works:</span>
+				<span ng-bind="homeworkDetail.description"></span>
+			</div>
+			<div class="item">
+				<p class="title">Attachment:</p>
+				<div class="homework-carousel swiper-container">
+					<div class="swiper-wrapper">
+						<div class="swiper-slide" ng-repeat="obj in homeworkDetail.homeworkFileList"><img ng-src="{{obj.url}}" alt="{{obj.name}}"></div>
+					</div>
+				</div>
+				<div class="swiper-button-prev"></div>
+				<div class="swiper-button-next"></div>
+			</div>
+			<div class="homework-ctrl swiper-container">
+				<div class="swiper-wrapper">
+					<div class="swiper-slide" ng-repeat="obj in homeworkDetail.homeworkFileList"><img ng-src="{{obj.url}}" alt="{{obj.name}}"></div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

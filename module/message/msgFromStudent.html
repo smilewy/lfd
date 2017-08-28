@@ -1,0 +1,24 @@
+<link rel="stylesheet" href="module/message/message.css">
+<div class="msgDetail">
+    <div class="msgFromStudent">
+        <p>{{msgInfo.studentMessage}}</p>
+        <div>
+            <img src="assets/img/message_mail.png" alt="">
+            <span class="studentName" ng-if="msgInfo.teacherMessage">Replay from {{msgInfo.studentName}}</span>
+            <span class="studentNameAct" ng-if="!msgInfo.teacherMessage" ng-click="replay()">Replay from {{msgInfo.studentName}}</span>
+            <span>{{msgInfo.studentSendTime|date:'yyyy-MM-dd HH:mm:ss'}}</span>
+        </div>
+        <div class="spec" ng-show="msgInfo.teacherMessage">
+            <p>{{msgInfo.teacherMessage}}</p>
+            <p>{{msgInfo.teacherSendTime|date:'yyyy-MM-dd HH:mm:ss'}}</p>
+        </div>
+        <div class="spec" ng-show="!msgInfo.teacherMessage&&editState">
+            <textarea name="" placeholder="replay {{msgInfo.studentName}}" maxlength="300" ng-model="param.teacherMessage"></textarea>
+            <div class="textNum">300</div>
+        </div>
+        <div class="bn">
+            <button type="button" class="btn btn-default" ui-sref="messageView" ng-show="msgInfo.teacherMessage||!editState">Close</button>
+            <button type="button" class="btn btn-default" ng-show="!msgInfo.teacherMessage&&editState" ng-click="replayConfirm()">Send out</button>
+        </div>
+    </div>
+</div>

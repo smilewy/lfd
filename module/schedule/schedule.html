@@ -1,0 +1,149 @@
+<link rel="stylesheet" href="module/schedule/schedule.css">
+<style>
+	.seled{border:1px solid red;background-color:#D6DFF7;}
+</style>
+<div class="sch-header bgc-f clearfix">
+	<button ng-disabled="editAva" ng-click="edit()">Edit availability</button>
+	<a class="btn btn-link" ng-click="note()">Special notes</a>
+	<ul class="sch-status">
+		<li><span class="icon-ava"></span><span>Available</span></li>
+		<li><span class="icon-not"></span><span>Not available</span></li>
+		<li><span class="icon-wait"></span><span>Waiting to attend</span></li>
+	</ul>
+</div>
+<div class="sch-left">
+	<div class="sch-calendar bgc-f">
+		<div id="datetimepicker"></div>
+	</div>
+	<div class="my-student bgc-f">
+		<h3>My student</h3>
+		<p>Tick the student's name to check his or her schedule</p>
+		<ul class="stu-list">
+			<li ng-repeat="list in studentList">
+				<label class="checkbox-diy checked">
+					<span></span>
+					<span ng-bind="list.enName"></span>
+					<input class="hide" type="checkbox" checked ng-click="selectStudent($event, list.idUser)">
+				</label>
+			</li>
+		</ul>
+	</div>
+</div>
+
+<div class="sch-right bgc-f clearfix">
+	<div class="week-header">
+		<div class="edit" ng-show="showEdit">
+			<p>Click and drag to select one or more areas on the calendar, then click Save to modify your availability.</p>
+			<div>
+				<span class="font-weight">Change to</span>
+				<ul>
+					<li>
+						<label ng-class="{true: 'checked',false: ''}[editType.available]" class="radio-diy">
+							<span></span>
+							<span>Available for clients to book appointments</span>
+							<input class="hide course-input" type="radio" name="edit" ng-model="course.edit" value="available" ng-click="editCourse('available')">
+						</label>
+					</li>
+					<li>
+						<label ng-class="{true: 'checked',false: ''}[editType.unavailable]" class="radio-diy">
+							<span></span>
+							<span>Unavailable to clients</span>
+							<input class="hide course-input" type="radio" name="edit" ng-model="course.edit" value="unavailable" ng-click="editCourse('unavailable')">
+						</label>
+					</li>
+					<li>
+						<button id="save" class="btn btn-info" ng-click="save()">Save</button>
+						<button class="btn btn-default" ng-click="close()">Close</button>
+					</li>
+				</ul>
+			</div>
+		</div>
+		<div class="btn-week">
+			<button ng-disabled="isEdit" ng-click="prevWeek()">
+				<span class="glyphicon glyphicon-menu-left"></span>
+				<span>Last week</span>
+			</button>
+			<button ng-disabled="isEdit" ng-click="nextWeek()">
+				<span>Next week</span>
+				<span class="glyphicon glyphicon-menu-right"></span>
+			</button>
+		</div>
+	</div>
+	<ul class="sch-time pull-left">
+		<li ng-repeat="obj in timeArea" ng-bind="obj.startDate">5:30am</li>
+	</ul>
+
+	<div class="pull-right table-div">
+		<div class="table-div-head">
+			<div ng-repeat="obj in week" ng-bind="obj.week + ' ' + obj.day"></div>
+		</div>
+		<div class="table-div-body">
+			<div class="table-div-tr" ng-repeat="obj in week">
+				<ul data-date-time="{{obj.dateTime}}">
+					<li ng-repeat="area in timeArea" data-id="{{area.idLfdTimeBase}}" class="timeList"
+						data-time-area="{{area.startDate}}" ng-click="seltimeArea($event)">
+						<div class="hasdiv" ng-repeat="info in list"
+							 ng-if="obj.dateTime == info.classBeginTimeTeacherYMD && area.startDate == info.classBeginTimeTeacherHM"
+							 ng-class="{true: 'selected',false:''}[info.idUser == null]">
+							<span class="en-name" ng-if="info.isSelected" ng-bind="info.studentEnName" ng-click="seeStudent(info)"></span>
+							<span class="demo" ng-if="info.previewStatus == 1">Demo</span>
+						</div>
+					</li>
+				</ul>
+			</div>
+		</div>
+	</div>
+</div>
+
+<div ng-if="showInfo" class="popup">
+	<div class="stu-info">
+		<div class="head">
+			<img ng-src="{{newListStudentDetail.headImage}}" alt="{{newListStudentDetail.enName}}">
+		</div>
+		<button ng-click="closeNewStudentDetail()" class="btn-close"></button>
+		<div class="pull-left">
+			<dl>
+				<dt>General Information</dt>
+				<dd>
+					<span class="stu-info-key">Name:</span>
+					<span ng-bind="newListStudentDetail.enName"></span>
+				</dd>
+				<dd>
+					<span class="stu-info-key">Gender</span>
+					<span ng-bind="newListStudentDetail.sex | sex"></span>
+				</dd>
+				<dd>
+					<span class="stu-info-key">Grade:</span>
+					<span ng-bind="newListStudentDetail.grade | grade"></span>
+				</dd>
+			</dl>
+			<p class="stu-info-title">Basic discription about the kid:</p>
+			<p style="word-wrap: break-word" ng-bind="newListStudentDetail.enRemarkStr" title="{{newListStudentDetail.enRemark}}"></p>
+		</div>
+		<div class="pull-right">
+			<dl>
+				<dt>Course Infomation</dt>
+				<div ng-if="newListStudentDetail.obj.previewStatus != 1">
+					<dd ng-repeat = "obj in newListStudentDetail.studentLessonInfoList">
+						<span ng-bind="'Course'+($index+1)+':'" class="stu-info-key"></span>
+						<span ng-bind="obj.courseSystemEnName"></span>
+						<span ng-bind="'Level:' + (obj.courseLevel || '-')" class="stu-info-key"></span>
+					</dd>
+				</div>
+				<div ng-if="newListStudentDetail.obj.previewStatus == 1">
+					<dd>
+						<span class="stu-info-key">Demo Course :</span>
+						<span ng-bind="newListStudentDetail.obj.courseSystemEnName"></span>
+						<span ng-bind="'Level:' + (obj.courseLevel || '-')" class="stu-info-key"></span>
+					</dd>
+				</div>
+			</dl>
+			<p class="stu-info-title">Sessions has been taken with you: <span ng-bind="newListStudentDetail.studiedLessonCount"></span></p>
+			<p ng-if="newListStudentDetail.obj.previewStatus != 1"><span CLASS="stu-info-key">PA:</span><span>E-mail {{newListStudentDetail.paEmail}}</span></p>
+			<div ng-if="newListStudentDetail.obj.previewStatus == 1">
+				<p><span CLASS="stu-info-key">CC:</span><span>E-mail {{newListStudentDetail.salesEmail}}</span></p>
+			</div>
+		</div>
+		<button  ng-click="closeNewStudentDetail()" class="btn btn-default btn-thk">Got it, thanks</button>
+	</div>
+</div>

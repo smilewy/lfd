@@ -1,0 +1,52 @@
+header {
+    position: static;
+}
+
+.container-fluid {
+    background-color: #fff;
+}
+
+.title {
+    margin-top: 50px;
+    margin-bottom: 70px;
+    font-size: 36px;
+    text-align: center;
+}
+
+.left {
+    padding-left: 92px;
+}
+
+.right {
+    padding-right: 92px;
+}
+
+.starts-salary {
+    padding-left: 0;
+    margin-bottom: 50px;
+    font-size: 18px;
+}
+
+.starts-salary span {
+    vertical-align: middle;
+}
+
+.starts-salary span + span {
+    margin-left: 150px;
+}
+
+.iconfont {
+    color: #f34348;
+    font-size: 24px;
+}
+
+.criteria p {
+    margin-bottom: 20px;
+    width: 90%;
+    float: left;
+}
+
+.criteria p + span {
+    color: #f34348;
+    font-size: 18px;
+}

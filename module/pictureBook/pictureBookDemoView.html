@@ -1,0 +1,201 @@
+<link rel="stylesheet" href="assets/css/feedback.css">
+<div class="feedback lan-art-demo clearfix">
+	<ol class="breadcrumb">
+		<li><a ui-sref="sessionHistory">Session history</a></li>
+		<li><a class="active">Feedback</a></li>
+	</ol>
+	<div class="course-info">
+		<div class="clearfix">
+			<h2 class="pull-left title">PICTUREBOOK DEMO</h2>
+			<span class="pull-right lefundo">LEFUNDO</span>
+		</div>
+		<p class="clearfix">
+			<span class="pull-left">Date and Time</span>
+			<span class="pull-right" ng-bind="((lessonInfo.classBeginTimeTeacher | date:'yyyy/MM/dd HH:mma') + '-' +(lessonInfo.classEndTimeTeacher | date:'yyyy/MM/dd HH:mma')) | dateToLowerCase"></span>
+		</p>
+		<p class="clearfix">
+			<span class="pull-left">Course</span>
+			<span class="pull-right" ng-bind="(lessonInfo.coursewareCompleteCode) + ' ' + (lessonInfo.coursewareName)"></span>
+		</p>
+		<p class="clearfix">
+			<span class="pull-left">Student's Name</span>
+			<span class="pull-right" ng-bind="lessonInfo.studentEnName"></span>
+		</p>
+		<p class="clearfix">
+			<span class="pull-left">Teacher's Name</span>
+			<span class="pull-right" ng-bind="lessonInfo.teacherName"></span>
+		</p>
+	</div>
+	<div class="item first">
+		<div class="title">
+			<h3>01</h3>
+			<span>CLASS EVALUATION</span>
+		</div>
+		<div class="item-content">
+			<div class="item-list">
+				<p>1.Is the student willing to participate in the demo session?</p>
+				<div class="radio-group" >
+					<label ng-class="{true:'checked',false:''}[picturebook.part_1.question_1=='Yes, he is']">
+						<input type="radio" name="participate"  class="hide" ng-bind="picturebook.part_1.question_1" value="Yes, he is">
+						<span class="item-radio"></span>
+						<span>Yes, he is</span>
+					</label>
+					<label ng-class="{true:'checked',false:''}[picturebook.part_1.question_1==&quot;It's fine&quot;]">
+						<input type="radio" name="participate" class="hide" ng-bind="picturebook.part_1.question_1" value="It's fine">
+						<span class="item-radio"></span>
+						<span>It's fine</span>
+					</label>
+					<label ng-class="{true:'checked',false:''}[picturebook.part_1.question_1=='No, he is not']">
+						<input type="radio" name="participate" class="hide" ng-bind="picturebook.part_1.question_1" value="No, he is not">
+						<span class="item-radio"></span>
+						<span>No, he is not</span>
+					</label>
+				</div>
+				<p>If no, please write down the reason</p>
+				<textarea  readonly="readonly" ng-model="picturebook.part_1.question_2" class="form-control"></textarea>
+			</div>
+			<div class="item-list">
+				<p>2.How do you evaluate this demo session with the student?</p>
+				<div class="radio-group">
+					<label ng-class="{true:'checked',false:''}[picturebook.part_1.question_3=='Super']">
+						<input type="radio" name="evaluate" class="hide" ng-bind="picturebook.part_1.question_3" value="Super">
+						<span class="item-radio"></span>
+						<span>Super</span>
+					</label>
+					<label ng-class="{true:'checked',false:''}[picturebook.part_1.question_3=='Good']">
+						<input type="radio" name="evaluate" class="hide"  ng-bind="picturebook.part_1.question_3" value="Good">
+						<span class="item-radio"></span>
+						<span>Good</span>
+					</label>
+					<label  ng-class="{true:'checked',false:''}[picturebook.part_1.question_3=='Qualified']">
+						<input type="radio" name="evaluate" class="hide"  ng-bind="picturebook.part_1.question_3" value="Qualified">
+						<span class="item-radio"></span>
+						<span>Qualified</span>
+					</label>
+					<label ng-class="{true:'checked',false:''}[picturebook.part_1.question_3=='Not too bad']">
+						<input type="radio" name="evaluate" class="hide"  ng-bind="picturebook.part_1.question_3" value="Not too bad">
+						<span class="item-radio"></span>
+						<span>Not too bad</span>
+					</label>
+				</div>
+				<p>Please write down what you think is good or what is not very good</p>
+				<textarea readonly="readonly" ng-model="picturebook.part_1.question_4" class="form-control"></textarea>
+			</div>
+			<div class="item-list">
+				<p>3. How do you evaluate the student’s interests in reading?</p>
+				<div class="radio-group">
+					<label ng-class="{true:'checked',false:''}[picturebook.part_1.question_5=='Very much']">
+						<input type="radio" name="interests" class="hide"  ng-bind="picturebook.part_1.question_5" value="Very much">
+						<span class="item-radio"></span>
+						<span>Very much</span>
+					</label>
+					<label ng-class="{true:'checked',false:''}[picturebook.part_1.question_5=='Just so']">
+						<input type="radio" name="interests" class="hide" ng-bind="picturebook.part_1.question_5" value="Just so">
+						<span class="item-radio"></span>
+						<span>Just so</span>
+					</label>
+					<label ng-class="{true:'checked',false:''}[picturebook.part_1.question_5=='Not at all']">
+						<input type="radio" name="interests" class="hide" ng-bind="picturebook.part_1.question_5" value="Not at all">
+						<span class="item-radio"></span>
+						<span>Not at all</span>
+					</label>
+				</div>
+			</div>
+			<div class="item-list">
+				<p>4.How do you evaluate the student’s listening comprehension ability?</p>
+				<div class="radio-group">
+					<label ng-class="{true:'checked',false:''}[picturebook.part_1.question_6=='Super']">
+						<input type="radio" name="compre" class="hide" ng-bind="picturebook.part_1.question_6" value="Super">
+						<span class="item-radio"></span>
+						<span>Super</span>
+					</label>
+					<label ng-class="{true:'checked',false:''}[picturebook.part_1.question_6=='Good']">
+						<input type="radio" name="compre" class="hide" ng-bind="picturebook.part_1.question_6" value="Good">
+						<span class="item-radio"></span>
+						<span>Good</span>
+					</label>
+					<label ng-class="{true:'checked',false:''}[picturebook.part_1.question_6=='Qualified']">
+						<input type="radio" name="compre" class="hide" ng-bind="picturebook.part_1.question_6" value="Qualified">
+						<span class="item-radio"></span>
+						<span>Qualified</span>
+					</label>
+					<label ng-class="{true:'checked',false:''}[picturebook.part_1.question_6=='Not too bad']">
+						<input type="radio" name="compre" class="hide" ng-bind="picturebook.part_1.question_6" value="Not too bad">
+						<span class="item-radio"></span>
+						<span>Not too bad</span>
+					</label>
+				</div>
+			</div>
+			<div class="item-list">
+				<p>5. How do you evaluate the student’s reading comprehension ability?</p>
+				<div class="radio-group">
+					<label ng-class="{true:'checked',false:''}[picturebook.part_1.question_7=='Super']">
+						<input type="radio" name="reading" class="hide" ng-bind="picturebook.part_1.question_7" value="Super">
+						<span class="item-radio"></span>
+						<span>Super</span>
+					</label>
+					<label ng-class="{true:'checked',false:''}[picturebook.part_1.question_7=='Good']">
+						<input type="radio" name="reading" class="hide" ng-bind="picturebook.part_1.question_7" value="Good">
+						<span class="item-radio"></span>
+						<span>Good</span>
+					</label>
+					<label ng-class="{true:'checked',false:''}[picturebook.part_1.question_7=='Qualified']">
+						<input type="radio" name="reading" class="hide" ng-bind="picturebook.part_1.question_7" value="Qualified">
+						<span class="item-radio"></span>
+						<span>Qualified</span>
+					</label>
+					<label ng-class="{true:'checked',false:''}[picturebook.part_1.question_7=='Not too bad']">
+						<input type="radio" name="reading" class="hide" ng-bind="picturebook.part_1.question_7" value="Not too bad">
+						<span class="item-radio"></span>
+						<span>Not too bad</span>
+					</label>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="item">
+		<div class="title">
+			<h3>02</h3>
+			<span>READING LEVEL</span>
+		</div>
+		<div class="item-content">
+			<div class="item-list">
+				<p>Do you think which level is suitable for the student?</p>
+				<div class="radio-group">
+					<label ng-class="{true:'checked',false:''}[picturebook.part_2.question_1=='Starter']">
+						<input type="radio" name="suitable" class="hide"  ng-bind="picturebook.part_2.question_1" value="Starter">
+						<span class="item-radio"></span>
+						<span>Starter</span>
+					</label>
+					<label ng-class="{true:'checked',false:''}[picturebook.part_2.question_1=='Level 1']">
+						<input type="radio" name="suitable" class="hide"  ng-bind="picturebook.part_2.question_1" value="Level 1">
+						<span class="item-radio"></span>
+						<span>Level 1</span>
+					</label>
+					<label ng-class="{true:'checked',false:''}[picturebook.part_2.question_1=='Level 2']">
+						<input type="radio" name="suitable" class="hide"  ng-bind="picturebook.part_2.question_1" value="Level 2">
+						<span class="item-radio"></span>
+						<span>Level 2</span>
+					</label>
+					<label ng-class="{true:'checked',false:''}[picturebook.part_2.question_1=='Level 3']">
+						<input type="radio" name="suitable" class="hide"  ng-bind="picturebook.part_2.question_1" value="Level 3">
+						<span class="item-radio"></span>
+						<span>Level 3</span>
+					</label>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="item">
+		<div class="title">
+			<h3>03</h3>
+			<span>OTHER COMMENTS AND SUGGESTIONS</span>
+		</div>
+		<div class="item-content">
+			<div class="item-list">
+				<p>Please write down your suggestions and recommended books to help student to improve. </p>
+				<textarea   readonly="readonly" ng-model="picturebook.part_3.question_1" class="form-control"></textarea>
+			</div>
+		</div>
+	</div>
+</div>

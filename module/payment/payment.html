@@ -1,0 +1,63 @@
+<link rel="stylesheet" href="module/payment/payment.css">
+<div class="payment">
+    <h3>Payment</h3>
+    <div class="changeTime clearfix">
+        <div class="col-sm-5">
+            <button type="button" ng-class="{true:'btn btn-default act',false:'btn btn-default'}[accountType==1]" ng-click="changeAccount(1)">Waiting for accounting</button>
+            <button type="button" ng-class="{true:'btn btn-default act',false:'btn btn-default'}[accountType==2]" ng-click="changeAccount(2)">Already accounting</button>
+        </div>
+        <div class="col-sm-3">
+            <span class="glyphicon glyphicon-chevron-left" ng-click="changeMonth('prev')"></span>
+            <span>{{curMonth}} {{curYear}}</span>
+            <span class="glyphicon glyphicon-chevron-right" ng-click="changeMonth('next')"></span>
+        </div>
+        <div class="col-sm-4">
+            <span>Star Level:</span>
+            <img src="assets/img/payment_02.png" ng-repeat="s in star|starFilterFill track by $index"><img src="assets/img/payment_01.png" ng-repeat="n in star|starFilterNull track by $index">
+            <a href="how-to-get-starts.html" target="_blank" class="tips">(How to get star)</a>
+        </div>
+    </div>
+    <div class="lists">
+        <table class="table table-striped" ng-show="accountType==2">
+            <thead>
+            <tr>
+                <th>Time</th>
+                <th>Student</th>
+                <th>Amount</th>
+                <th>Type</th>
+                <th>Notes</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr ng-repeat="salaryList in salaryLists">
+                <td>
+                    <span ng-if="salaryList.type=='1'">{{salaryList.classBeginTimeTeacher|date:'yyyy-MM-dd HH:mm:ss'}}-{{salaryList.classEndTimeTeacher|date:'yyyy-MM-dd HH:mm:ss'}}</span>
+                    <span ng-if="salaryList.type=='2'">{{salaryList.happenDate|date:'yyyy-MM-dd'}}</span>
+                </td>
+                <td>{{salaryList.studentEnName}}</td>
+                <td>{{salaryList.realPay}}{{salaryList.currencyName}}</td>
+                <td><span ng-if="salaryList.type=='1'">class</span><span ng-if="salaryList.type=='2'">other</span></td>
+                <td><span ng-if="salaryList.type=='1'">{{salaryList.accountingDes}}</span><span ng-if="salaryList.type=='2'">{{salaryList.accountingTerm}}</span></td>
+            </tr>
+            </tbody>
+        </table>
+        <table class="table table-striped" ng-show="accountType==1">
+            <thead>
+            <tr>
+                <th>Time</th>
+                <th>Student</th>
+                <th>Amount</th>
+                <th>Notes</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr ng-repeat="salaryList in salaryLists">
+                <td>{{salaryList.classBeginTimeTeacher|date:'yyyy-MM-dd HH:mm:ss'}}-{{salaryList.classEndTimeTeacher|date:'yyyy-MM-dd HH:mm:ss'}}</td>
+                <td>{{salaryList.studentEnName}}</td>
+                <td>{{salaryList.realPay}}{{salaryList.currencyName}}</td>
+                <td><span ng-if="salaryList.type=='1'">{{salaryList.accountingDes}}</span><span ng-if="salaryList.type=='2'">{{salaryList.accountingTerm}}</span></td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

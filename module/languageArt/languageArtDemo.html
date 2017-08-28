@@ -1,0 +1,255 @@
+<link rel="stylesheet" href="assets/css/feedback.css">
+<div class="feedback lan-art-demo clearfix">
+	<ol class="breadcrumb">
+		<li><a ui-sref="sessionHistory">Session history</a></li>
+		<li><a class="active">Feedback</a></li>
+	</ol>
+	<div class="course-info">
+		<div class="clearfix">
+			<h2 class="pull-left title">LANGUAGE ART DEMO</h2>
+			<span class="pull-right lefundo">LEFUNDO</span>
+		</div>
+		<p class="clearfix">
+			<span class="pull-left">Date and Time</span>
+			<span class="pull-right" ng-bind="((lessonInfo.classBeginTimeTeacher | date:'yyyy/MM/dd HH:mma') + '-' +(lessonInfo.classEndTimeTeacher | date:'yyyy/MM/dd HH:mma')) | dateToLowerCase"></span>
+		</p>
+		<p class="clearfix">
+			<span class="pull-left">Course</span>
+			<span class="pull-right" ng-bind="(lessonInfo.coursewareCompleteCode) + ' ' + (lessonInfo.coursewareName)"></span>
+		</p>
+		<p class="clearfix">
+			<span class="pull-left">Student's Name</span>
+			<span class="pull-right" ng-bind="lessonInfo.studentEnName"></span>
+		</p>
+		<p class="clearfix">
+			<span class="pull-left">Teacher's Name</span>
+			<span class="pull-right" ng-bind="lessonInfo.teacherName">Christina Aguila</span>
+		</p>
+	</div>
+	<div class="item first">
+		<div class="title">
+			<h3>01</h3>
+			<span>CLASS PERFORMANCE</span>
+		</div>
+		<div class="item-content">
+			<div class="item-list">
+				<p>Is the student willing to participate in the demo session? </p>
+				<div class="radio-group">
+					<label>
+						<input type="radio" name="participate" class="hide" ng-model="languageArtDemo.part_1.question_1" value="Yes, he is">
+						<span class="item-radio"></span>
+						<span>Yes, he is</span>
+					</label>
+					<label>
+						<input type="radio" name="participate" class="hide" ng-model="languageArtDemo.part_1.question_1" value="It's fine">
+						<span class="item-radio"></span>
+						<span>It's fine</span>
+					</label>
+					<label>
+						<input type="radio" name="participate" class="hide" ng-model="languageArtDemo.part_1.question_1" value="No, he is not">
+						<span class="item-radio"></span>
+						<span>No, he is not</span>
+					</label>
+				</div>
+				<p>If no, please write down the reason</p>
+				<textarea class="form-control" ng-model="languageArtDemo.part_1.question_2"></textarea>
+			</div>
+			<div class="item-list">
+				<p>2. How do you evaluate this demo session with the student</p>
+				<div class="radio-group">
+					<label>
+						<input type="radio" name="evaluate" class="hide" ng-model="languageArtDemo.part_1.question_3" value="Super">
+						<span class="item-radio"></span>
+						<span>Super</span>
+					</label>
+					<label>
+						<input type="radio" name="evaluate" class="hide" ng-model="languageArtDemo.part_1.question_3" value="Good">
+						<span class="item-radio"></span>
+						<span>Good</span>
+					</label>
+					<label>
+						<input type="radio" name="evaluate" class="hide" ng-model="languageArtDemo.part_1.question_3" value="Qualified">
+						<span class="item-radio"></span>
+						<span>Qualified</span>
+					</label>
+					<label>
+						<input type="radio" name="evaluate" class="hide" ng-model="languageArtDemo.part_1.question_3" value="Not too bad">
+						<span class="item-radio"></span>
+						<span>Not too bad</span>
+					</label>
+				</div>
+				<p>Please write down what you think is good or what is not very good</p>
+				<textarea class="form-control" ng-model="languageArtDemo.part_1.question_4"></textarea>
+			</div>
+		</div>
+	</div>
+	<div class="item">
+		<div class="title">
+			<h3>02</h3>
+			<span>English Application Ability </span>
+		</div>
+		<div class="item-content">
+			<div class="item-list">
+				<p>1. How do you evaluate the student’s  listening comprehension ability?</p>
+				<div class="radio-group">
+					<label>
+						<input type="radio" name="ability" class="hide" ng-model="languageArtDemo.part_2.question_1" value="Super">
+						<span class="item-radio"></span>
+						<span>Super</span>
+					</label>
+					<label>
+						<input type="radio" name="ability" class="hide" ng-model="languageArtDemo.part_2.question_1" value="Good">
+						<span class="item-radio"></span>
+						<span>Good</span>
+					</label>
+					<label>
+						<input type="radio" name="ability" class="hide" ng-model="languageArtDemo.part_2.question_1" value="Qualified">
+						<span class="item-radio"></span>
+						<span>Qualified</span>
+					</label>
+					<label>
+						<input type="radio" name="ability" class="hide" ng-model="languageArtDemo.part_2.question_1" value="Fail">
+						<span class="item-radio"></span>
+						<span>Fail</span>
+					</label>
+				</div>
+			</div>
+			<div class="item-list">
+				<p>2.How do you evaluate the student’s  speaking ability?</p>
+				<div class="radio-group">
+					<label>
+						<input type="radio" name="speaking" class="hide" ng-model="languageArtDemo.part_2.question_2" value="Super">
+						<span class="item-radio"></span>
+						<span>Super</span>
+					</label>
+					<label>
+						<input type="radio" name="speaking" class="hide" ng-model="languageArtDemo.part_2.question_2" value="Good">
+						<span class="item-radio"></span>
+						<span>Good</span>
+					</label>
+					<label>
+						<input type="radio" name="speaking" class="hide" ng-model="languageArtDemo.part_2.question_2" value="Qualified">
+						<span class="item-radio"></span>
+						<span>Qualified</span>
+					</label>
+					<label>
+						<input type="radio" name="speaking" class="hide" ng-model="languageArtDemo.part_2.question_2" value="Fail">
+						<span class="item-radio"></span>
+						<span>Fail</span>
+					</label>
+				</div>
+			</div>
+			<div class="item-list">
+				<p>3. How do you evaluate the student reading ability?</p>
+				<div class="radio-group">
+					<label>
+						<input type="radio" name="reading" class="hide" ng-model="languageArtDemo.part_2.question_3" value="Super">
+						<span class="item-radio"></span>
+						<span>Super</span>
+					</label>
+					<label>
+						<input type="radio" name="reading" class="hide" ng-model="languageArtDemo.part_2.question_3" value="Good">
+						<span class="item-radio"></span>
+						<span>Good</span>
+					</label>
+					<label>
+						<input type="radio" name="reading" class="hide" ng-model="languageArtDemo.part_2.question_3" value="Qualified">
+						<span class="item-radio"></span>
+						<span>Qualified</span>
+					</label>
+					<label>
+						<input type="radio" name="reading" class="hide" ng-model="languageArtDemo.part_2.question_3" value="Fail">
+						<span class="item-radio"></span>
+						<span>Fail</span>
+					</label>
+				</div>
+			</div>
+			<div class="item-list">
+				<p>4. Is the student able to pronounce  accurately?</p>
+				<div class="radio-group">
+					<label>
+						<input type="radio" name="pronounce" class="hide" ng-model="languageArtDemo.part_2.question_4" value="Super">
+						<span class="item-radio"></span>
+						<span>Super</span>
+					</label>
+					<label>
+						<input type="radio" name="pronounce" class="hide" ng-model="languageArtDemo.part_2.question_4" value="Good">
+						<span class="item-radio"></span>
+						<span>Good</span>
+					</label>
+					<label>
+						<input type="radio" name="pronounce" class="hide" ng-model="languageArtDemo.part_2.question_4" value="Qualified">
+						<span class="item-radio"></span>
+						<span>Qualified</span>
+					</label>
+					<label>
+						<input type="radio" name="pronounce" class="hide" ng-model="languageArtDemo.part_2.question_4" value="Fail">
+						<span class="item-radio"></span>
+						<span>Fail</span>
+					</label>
+				</div>
+			</div>
+			<div class="item-list">
+				<p>5. Please give examples of mispronunciation and wrong grammar points</p>
+				<textarea class="form-control" ng-model="languageArtDemo.part_2.question_5"></textarea>
+			</div>
+		</div>
+	</div>
+	<div class="item">
+		<div class="title">
+			<h3>03</h3>
+			<span>Course Level</span>
+		</div>
+		<div class="item-content">
+			<div class="item-list">
+				<p>Do you think which level is suitable for the student? </p>
+				<div class="radio-group">
+					<label>
+						<input type="radio" name="suitable" class="hide" ng-model="languageArtDemo.part_3" value="Starter">
+						<span class="item-radio"></span>
+						<span>Starter</span>
+					</label>
+					<label>
+						<input type="radio" name="suitable" class="hide" ng-model="languageArtDemo.part_3" value="Level 1">
+						<span class="item-radio"></span>
+						<span>Level 1</span>
+					</label>
+					<label>
+						<input type="radio" name="suitable" class="hide" ng-model="languageArtDemo.part_3" value="Level 2">
+						<span class="item-radio"></span>
+						<span>Level 2</span>
+					</label>
+					<label>
+						<input type="radio" name="suitable" class="hide" ng-model="languageArtDemo.part_3" value="Level 3">
+						<span class="item-radio"></span>
+						<span>Level 3</span>
+					</label>
+					<label>
+						<input type="radio" name="suitable" class="hide" ng-model="languageArtDemo.part_3" value="Level 4">
+						<span class="item-radio"></span>
+						<span>Level 4</span>
+					</label>
+					<label>
+						<input type="radio" name="suitable" class="hide" ng-model="languageArtDemo.part_3" value="Level 5">
+						<span class="item-radio"></span>
+						<span>Level 5</span>
+					</label>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="item">
+		<div class="title">
+			<h3>04</h3>
+			<span>Other comments and suggestions</span>
+		</div>
+		<div class="item-content">
+			<div class="item-list">
+				<textarea class="form-control" ng-model="languageArtDemo.part_4"></textarea>
+			</div>
+		</div>
+	</div>
+	<div class="submit">
+		<button class="btn btn-default" ng-click="submitLanguageArtDemo()">Submit</button>
+	</div>
+</div>

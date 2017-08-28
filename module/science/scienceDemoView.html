@@ -1,0 +1,248 @@
+<link rel="stylesheet" href="assets/css/feedback.css">
+<div class="feedback lan-art-demo clearfix">
+	<ol class="breadcrumb">
+		<li><a ui-sref="sessionHistory">Session history</a></li>
+		<li><a class="active">Feedback</a></li>
+	</ol>
+	<div class="course-info">
+		<div class="clearfix">
+			<h2 class="pull-left title">SCIENCE DEMO</h2>
+			<span class="pull-right lefundo">LEFUNDO</span>
+		</div>
+		<p class="clearfix">
+			<span class="pull-left">Date and Time</span>
+			<span class="pull-right" ng-bind="((lessonInfo.classBeginTimeTeacher | date:'yyyy/MM/dd HH:mma') + '-' +(lessonInfo.classEndTimeTeacher | date:'yyyy/MM/dd HH:mma')) | dateToLowerCase"></span>
+		</p>
+		<p class="clearfix">
+			<span class="pull-left">Course</span>
+			<span class="pull-right" ng-bind="(lessonInfo.coursewareCompleteCode) + ' ' + (lessonInfo.coursewareName)"></span>
+		</p>
+		<p class="clearfix">
+			<span class="pull-left">Student's Name</span>
+			<span class="pull-right" ng-bind="lessonInfo.studentEnName"></span>
+		</p>
+		<p class="clearfix">
+			<span class="pull-left">Teacher's Name</span>
+			<span class="pull-right" ng-bind="lessonInfo.teacherName"></span>
+		</p>
+	</div>
+	<div class="item first">
+		<div class="title">
+			<h3>01</h3>
+			<span>OVERALL EVALUATION</span>
+		</div>
+		<div class="item-content">
+			<div class="item-list">
+				<p>1.Is the student willing to participate in the demo session?</p>
+				<div class="radio-group">
+					<label ng-class="{true:'checked',false:''}[content.q01_01=='Yes, he is']">
+						<input type="radio" name="participate" class="hide" ng-bind="content.q01_01" value="Yes, he is">
+						<span class="item-radio"></span>
+						<span>Yes, he is</span>
+					</label>
+					<label ng-class="{true:'checked',false:''}[content.q01_01==&quot;It's fine&quot;]">
+						<input type="radio" name="participate" class="hide" ng-bind="content.q01_01" value="It's fine">
+						<span class="item-radio"></span>
+						<span>It's fine</span>
+					</label>
+					<label ng-class="{true:'checked',false:''}[content.q01_01=='No, he is not']">
+						<input type="radio" name="participate" class="hide" ng-bind="content.q01_01" value="No, he is not">
+						<span class="item-radio"></span>
+						<span>No, he is not</span>
+					</label>
+				</div>
+				<p>If no, please write down the reason</p>
+				<textarea readonly="readonly" class="form-control" ng-bind="content.q01_01_t"></textarea>
+			</div>
+			<div class="item-list">
+				<p>2.How do you evaluate this demo session with the student</p>
+				<div class="radio-group">
+					<label ng-class="{true:'checked',false:''}[content.q01_02=='Super']">
+						<input type="radio" name="session" class="hide" ng-bind="content.q01_02" value="Super">
+						<span class="item-radio"></span>
+						<span>Super</span>
+					</label>
+					<label ng-class="{true:'checked',false:''}[content.q01_02=='Good']">
+						<input type="radio" name="session" class="hide"  ng-bind="content.q01_02" value="Good">
+						<span class="item-radio"></span>
+						<span>Good</span>
+					</label>
+					<label ng-class="{true:'checked',false:''}[content.q01_02=='Qualified']">
+						<input type="radio" name="session" class="hide"  ng-bind="content.q01_02" value="Qualified">
+						<span class="item-radio"></span>
+						<span>Qualified</span>
+					</label>
+					<label ng-class="{true:'checked',false:''}[content.q01_02=='Not too bad']">
+						<input type="radio" name="session" class="hide"  ng-bind="content.q01_02" value="Not too bad">
+						<span class="item-radio"></span>
+						<span>Not too bad</span>
+					</label>
+				</div>
+			</div>
+			<div class="item-list">
+				<p>3. Is the student willing to do the hands-on activities?</p>
+				<div class="radio-group">
+					<label ng-class="{true:'checked',false:''}[content.q01_03=='Yes, he is']">
+						<input type="radio" name="hands" class="hide"  ng-bind="content.q01_03" value="Yes, he is">
+						<span class="item-radio"></span>
+						<span>Yes, he is</span>
+					</label>
+					<label ng-class="{true:'checked',false:''}[content.q01_03==&quot;It's fine&quot;]">
+						<input type="radio" name="hands" class="hide"  ng-bind="content.q01_03" value="It's fine">
+						<span class="item-radio"></span>
+						<span>It's fine</span>
+					</label>
+					<label ng-class="{true:'checked',false:''}[content.q01_03=='No, he is not']">
+						<input type="radio" name="hands" class="hide"  ng-bind="content.q01_03" value="No, he is not">
+						<span class="item-radio"></span>
+						<span>No, he is not</span>
+					</label>
+				</div>
+				<p>If no, please write down the reason</p>
+				<textarea readonly="readonly" class="form-control" ng-bind="content.q01_03_t"></textarea>
+			</div>
+			<div class="item-list">
+				<p>4. Is the student able to finish the experiments on the lesson plan? </p>
+				<div class="radio-group">
+					<label ng-class="{true:'checked',false:''}[content.q01_04=='Yes, he is']">
+						<input type="radio" name="exper" class="hide" ng-bind="content.q01_04" value="Yes, he is">
+						<span class="item-radio"></span>
+						<span>Yes, he is</span>
+					</label>
+					<label ng-class="{true:'checked',false:''}[content.q01_04==&quot;It's fine&quot;]">
+						<input type="radio" name="exper" class="hide" ng-bind="content.q01_04" value="It's fine">
+						<span class="item-radio"></span>
+						<span>It's fine</span>
+					</label>
+					<label ng-class="{true:'checked',false:''}[content.q01_04=='No, he is not']">
+						<input type="radio" name="exper" class="hide" ng-bind="content.q01_04" value="No, he is not">
+						<span class="item-radio"></span>
+						<span>No, he is not</span>
+					</label>
+				</div>
+				<p>If no, please write down the reason</p>
+				<textarea readonly="readonly" class="form-control" ng-bind="content.q01_04_t"></textarea>
+			</div>
+			<div class="item-list">
+				<p>5. How do you evaluate the student’s listening comprehension ability？</p>
+				<div class="radio-group">
+					<label ng-class="{true:'checked',false:''}[content.q01_05=='Super']">
+						<input type="radio" name="listen" class="hide" ng-bind="content.q01_05" value="Super">
+						<span class="item-radio"></span>
+						<span>Super</span>
+					</label>
+					<label ng-class="{true:'checked',false:''}[content.q01_05=='Good']">
+						<input type="radio" name="listen" class="hide" ng-bind="content.q01_05" value="Good">
+						<span class="item-radio"></span>
+						<span>Good</span>
+					</label>
+					<label ng-class="{true:'checked',false:''}[content.q01_05=='Qualified']">
+						<input type="radio" name="listen" class="hide" ng-bind="content.q01_05" value="Qualified">
+						<span class="item-radio"></span>
+						<span>Qualified</span>
+					</label>
+					<label ng-class="{true:'checked',false:''}[content.q01_05=='Not too bad']">
+						<input type="radio" name="listen" class="hide" ng-bind="content.q01_05" value="Not too bad">
+						<span class="item-radio"></span>
+						<span>Not too bad</span>
+					</label>
+				</div>
+			</div>
+			<div class="item-list">
+				<p>6. How do you evaluate the student’s reading comprehension ability? </p>
+				<div class="radio-group">
+					<label ng-class="{true:'checked',false:''}[content.q01_06=='Super']">
+						<input type="radio" name="reading" class="hide" ng-bind="content.q01_06" value="Super">
+						<span class="item-radio"></span>
+						<span>Super</span>
+					</label>
+					<label ng-class="{true:'checked',false:''}[content.q01_06=='Good']">
+						<input type="radio" name="reading" class="hide" ng-bind="content.q01_06" value="Good">
+						<span class="item-radio"></span>
+						<span>Good</span>
+					</label>
+					<label ng-class="{true:'checked',false:''}[content.q01_06=='Qualified']">
+						<input type="radio" name="reading" class="hide" ng-bind="content.q01_06" value="Qualified">
+						<span class="item-radio"></span>
+						<span>Qualified</span>
+					</label>
+					<label ng-class="{true:'checked',false:''}[content.q01_06=='Not too bad']">
+						<input type="radio" name="reading" class="hide" ng-bind="content.q01_06" value="Not too bad">
+						<span class="item-radio"></span>
+						<span>Not too bad</span>
+					</label>
+				</div>
+			</div>
+			<div class="item-list">
+				<p>7. How does the student answer the questions on the lesson plan？</p>
+				<div class="radio-group">
+					<label ng-class="{true:'checked',false:''}[content.q01_07=='Super']">
+						<input type="radio" name="quest" class="hide" ng-bind="content.q01_07" value="Super">
+						<span class="item-radio"></span>
+						<span>Super</span>
+					</label>
+					<label ng-class="{true:'checked',false:''}[content.q01_07=='Good']">
+						<input type="radio" name="quest" class="hide" ng-bind="content.q01_07" value="Good">
+						<span class="item-radio"></span>
+						<span>Good</span>
+					</label>
+					<label ng-class="{true:'checked',false:''}[content.q01_07=='Qualified']">
+						<input type="radio" name="quest" class="hide" ng-bind="content.q01_07" value="Qualified">
+						<span class="item-radio"></span>
+						<span>Qualified</span>
+					</label>
+					<label ng-class="{true:'checked',false:''}[content.q01_07=='Not too bad']">
+						<input type="radio" name="quest" class="hide" ng-bind="content.q01_07" value="Not too bad">
+						<span class="item-radio"></span>
+						<span>Not too bad</span>
+					</label>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="item">
+		<div class="title">
+			<h3>02</h3>
+			<span>COURSE LEVEL</span>
+		</div>
+		<div class="item-content">
+			<div class="item-list">
+				<p>Do you think which level is suitable for the student</p>
+				<div class="radio-group">
+					<label ng-class="{true:'checked',false:''}[content.q02_01=='Super']">
+						<input type="radio" name="suitable" class="hide" ng-bind="content.q02_01" value="Super">
+						<span class="item-radio"></span>
+						<span>Super</span>
+					</label>
+					<label ng-class="{true:'checked',false:''}[content.q02_01=='Good']">
+						<input type="radio" name="suitable" class="hide" ng-bind="content.q02_01" value="Good">
+						<span class="item-radio"></span>
+						<span>Good</span>
+					</label>
+					<label ng-class="{true:'checked',false:''}[content.q02_01=='Qualified']">
+						<input type="radio" name="suitable" class="hide" ng-bind="content.q02_01" value="Qualified">
+						<span class="item-radio"></span>
+						<span>Qualified</span>
+					</label>
+					<label ng-class="{true:'checked',false:''}[content.q02_01=='Not too bad']">
+						<input type="radio" name="suitable" class="hide" ng-bind="content.q02_01" value="Not too bad">
+						<span class="item-radio"></span>
+						<span>Not too bad</span>
+					</label>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="item">
+		<div class="title">
+			<h3>03</h3>
+			<span>OTHER COMMENTS AND SUGGESTIONS</span>
+		</div>
+		<div class="item-content">
+			<div class="item-list">
+				<textarea readonly="readonly" class="form-control" ng-bind="content.q03_01"></textarea>
+			</div>
+		</div>
+	</div>
+
+</div>

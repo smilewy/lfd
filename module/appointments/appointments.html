@@ -1,0 +1,126 @@
+<link rel="stylesheet" href="module/appointments/appointments.css">
+<div class="item">
+	<div class="app-header clearfix">
+		<h2>New appointments</h2>
+		<label class="checkbox-diy" ng-class="{true: 'checked', false: ''}[newAppoCheck]">
+			<span></span>
+			<span>Show me the weekly new appointments</span>
+			<input type="checkbox" name="new appointments" class="hide" ng-click="checkboxChecked('1')">
+		</label>
+	</div>
+	<table class="table app-list">
+		<thead>
+			<tr>
+				<th>Student name</th>
+				<th>Session</th>
+				<th>Time</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr ng-repeat="obj in newAppoList">
+				<td style="text-align: left;">
+					<div class="head-img">
+						<div>
+							<img ng-src="{{obj.studentHeadImage}}" alt="{{obj.studentEnName}}">
+						</div>
+						<span class="spot"></span>
+					</div>
+					<a ng-click="showStudentPlan(obj)" ng-bind="obj.studentEnName" href="javascript:;"></a>
+				</td>
+				<td ng-bind="obj.coursewareCompleteCode"></td>
+				<td ng-bind="(obj.teacherClassDate | date: 'yyyy.MM.dd') + ' ' + obj.startTime + '-' + obj.endTime"></td>
+			</tr>
+		</tbody>
+	</table>
+	<tm-pagination class="bgc-f text-center" conf="newAppoPageConf"></tm-pagination>
+</div>
+<div class="item">
+	<div class="app-header clearfix">
+		<h2>Upcoming appointments<a href="module/appointments/classPreparation.html" target="_blank" style="padding-right: 100px;">Class preparation</a></h2>
+		<label class="checkbox-diy" ng-class="{true: 'checked', false: ''}[upAppoCheck]">
+			<span></span>
+			<span>Show me the weekly new appointments</span>
+			<input type="checkbox" name="upcoming appointments" class="hide" ng-click="checkboxChecked('2')">
+		</label>
+	</div>
+	<table class="table upcomming-list">
+		<thead>
+			<tr>
+				<th>Student name</th>
+				<th>Session</th>
+				<th>Time</th>
+				<th>Operation</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr ng-repeat="obj in upAppoList">
+				<td style="text-align: left;">
+					<div class="head-img">
+						<div>
+							<img ng-src="{{obj.studentHeadImage}}" alt="{{obj.studentEnName}}">
+						</div>
+					</div>
+					<a ng-click="showStudentPlan(obj)" ng-bind="obj.studentEnName" href="javascript:;"></a>
+				</td>
+				<td ng-bind="obj.coursewareCompleteCode"></td>
+				<td ng-bind="obj.teacherClassDate + ' ' + obj.startTime + '-' + obj.endTime"></td>
+				<td>
+					<a class="btn btn-info" href="pdf.html?url={{obj.attachmentUrl}}" target="_blank">Lession plan</a>
+					<button ng-click="enterRoom(obj.idLfdLesson)" class="btn btn-danger">Enter room</button>
+				</td>
+			</tr>
+		</tbody>
+	</table>
+	<tm-pagination class="bgc-f text-center" conf="upAppoPageConf"></tm-pagination>
+</div>
+
+<div ng-if="isShow" class="popup">
+	<div class="stu-info">
+		<div class="head">
+			<img ng-src="{{studentInfo.headImage}}" alt="{{studentInfo.enName}}">
+		</div>
+		<button ng-click="closeStuPlan()" class="btn-close"></button>
+		<div class="pull-left">
+			<dl>
+				<dt>General Information</dt>
+				<dd>
+					<span class="stu-info-key">Name:</span>
+					<span ng-bind="studentInfo.enName"></span>
+				</dd>
+				<dd>
+					<span class="stu-info-key">Gender</span>
+					<span ng-bind="studentInfo.sex | sex"></span>
+				</dd>
+				<dd>
+					<span class="stu-info-key">Grade:</span>
+					<span ng-bind="studentInfo.grade | grade"></span>
+				</dd>
+			</dl>
+			<p class="stu-info-title">Basic discription about the kid:</p>
+			<p style="word-wrap: break-word;" ng-bind="studentInfo.enRemarkStr" title="{{studentInfo.enRemark}}"></p>
+		</div>
+		<div class="pull-right">
+			<dl>
+				<dt>Course Infomation</dt>
+				<div>
+					<dd ng-repeat="obj in studentInfo.studentLessonInfoList">
+						<div ng-if="studentInfo.newAppoInfo.previewStatus != 1">
+							<span ng-bind="'Course' + ($index + 1) + ':'" class="stu-info-key"></span>
+							<span ng-bind="obj.courseSystemEnName"></span>
+							<span ng-bind="'Level: ' + (obj.courseLevel || '-')" class="stu-info-key"></span>
+						</div>
+					</dd>
+					<div ng-if="studentInfo.newAppoInfo.previewStatus == 1">
+						<span class="stu-info-key">Demo Course:</span>
+						<span ng-bind="studentInfo.newAppoInfo.courseSystemEnName"></span>
+						<span ng-bind="'Level: ' + (obj.courseLevel || '-')" class="stu-info-key"></span>
+					</div>
+				</div>
+			</dl>
+			<p class="stu-info-title">Sessions has been taken with you: <span ng-bind="studentInfo.studiedLessonCount"></span></p>
+			<p ng-if="studentInfo.newAppoInfo.previewStatus != 1"><span CLASS="stu-info-key">PA:</span><span>E-mail {{studentInfo.paEmail}}</span></p>
+			<p ng-if="studentInfo.newAppoInfo.previewStatus == 1"><span CLASS="stu-info-key">CC:</span><span>E-mail {{studentInfo.salesEmail}}</span></p>
+		</div>
+		<button ng-click="closeStuPlan()" class="btn btn-default btn-thk">Got it, thanks</button>
+	</div>
+</div>
